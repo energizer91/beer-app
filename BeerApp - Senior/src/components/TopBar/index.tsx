@@ -30,7 +30,7 @@ const TopBar = (props: Props) => {
         </Typography>
       </Toolbar>
     </AppBar>
-    );
-  }
+  );
+};
 
 export default TopBar;

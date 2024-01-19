@@ -33,23 +33,23 @@ export default function ResponsiveDrawer(props: Props) {
     <>
       <Divider />
       <List>
-        <Link component={RouterLink} to={`/`}>
+        <Link component={RouterLink} to="/">
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
-              <ListItemText primary='Home' />
+              <ListItemText primary="Home" />
             </ListItemButton>
           </ListItem>
         </Link>
-        <Link component={RouterLink} to={`/beer`}>
+        <Link component={RouterLink} to="/beer">
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <SportsBar />
               </ListItemIcon>
-              <ListItemText primary='Beer List' />
+              <ListItemText primary="Beer List" />
             </ListItemButton>
           </ListItem>
         </Link>
@@ -59,14 +59,17 @@ export default function ResponsiveDrawer(props: Props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <TopBar drawerWidth={drawerWidth} handleDrawerToggle={handleDrawerToggle} />
+      <TopBar
+        drawerWidth={drawerWidth}
+        handleDrawerToggle={handleDrawerToggle}
+      />
       <Box
-        component='nav'
+        component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label='mailbox folders'
+        aria-label="mailbox folders"
       >
         <Drawer
-          variant='temporary'
+          variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
@@ -74,16 +77,22 @@ export default function ResponsiveDrawer(props: Props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
         </Drawer>
         <Drawer
-          variant='permanent'
+          variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: drawerWidth,
+            },
           }}
           open
         >
@@ -91,7 +100,7 @@ export default function ResponsiveDrawer(props: Props) {
         </Drawer>
       </Box>
       <Box
-        component='main'
+        component="main"
         sx={{
           flexGrow: 1,
           p: 3,

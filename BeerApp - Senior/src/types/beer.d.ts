@@ -1,6 +1,6 @@
 import { TYPE } from './';
 
-interface Beer {
+export interface Beer {
   id: string;
   name: string;
   brewery_type: TYPE;
@@ -19,4 +19,8 @@ interface Beer {
   street: string;
 }
 
-export type { Beer };
+export interface BeerMeta {
+  total: string;
+  page: string;
+  per_page: string;
+}

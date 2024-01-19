@@ -4,9 +4,12 @@ import Router from './router';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './styles/theme';
+import * as sw from './serviceWorkerRegistration';
 import './styles/global.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 root.render(
   <React.StrictMode>
     <CssBaseline />
@@ -15,3 +18,5 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 );
+
+sw.register();

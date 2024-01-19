@@ -1,16 +1,13 @@
-import { getBeerList } from '../../api';
-import { Beer } from '../../types';
+import { getBeerList, getBeerMetaData } from '../../api';
 import handle from '../../utils/error';
+import { ApiParams } from '../../types';
 
-const fetchData = (setData: (data: Array<Beer>) => void) => {
-  (async () => {
-    try {
-      const response = await getBeerList();
-      setData(response.data);
-    } catch (error) {
-      handle(error);
-    }
-  })();
-};
+export const fetchData = (params?: ApiParams) =>
+  getBeerList(params)
+    .catch(handle)
+    .then((res) => res?.data || []);
 
-export { fetchData };
+export const fetchMeta = (params?: ApiParams) =>
+  getBeerMetaData(params)
+    .catch(handle)
+    .then((res) => res?.data);

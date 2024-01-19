@@ -3,10 +3,14 @@ import { useEffect, useState } from 'react';
 const Offline = () => {
   const [isOnline, setIsOnline] = useState(true);
 
-  const setOnline = () => setIsOnline(true);
-  const setOffline = () => setIsOnline(false);
+  useEffect(() => {
+    setIsOnline(navigator.onLine);
+  }, []);
 
   useEffect(() => {
+    const setOnline = () => setIsOnline(true);
+    const setOffline = () => setIsOnline(false);
+
     window.addEventListener('online', setOnline);
     window.addEventListener('offline', setOffline);
 

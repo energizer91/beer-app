@@ -3,7 +3,9 @@ import axios from 'axios';
 const handle = (error: unknown) => {
   if (axios.isAxiosError(error)) {
     if (error.response) {
-      console.error(`Server returned an error with status code: ${error.response.status}`);
+      console.error(
+        `Server returned an error with status code: ${error.response.status}`
+      );
     } else if (error.request) {
       console.error('No response from the server');
     } else {

@@ -1,16 +1,12 @@
-import { getRandomBeerList } from '../../api';
-import { Beer } from '../../types';
+import { getRandomBeerList, getFavourites, setFavourites } from '../../api';
 import handle from '../../utils/error';
 
-const fetchData = (setData: (data: Array<Beer>) => void) => {
-  (async () => {
-    try {
-      const { data } = await getRandomBeerList(10);
-      setData(data);
-    } catch (error) {
-      handle(error);
-    }
-  })();
-};
+// re-export favourites since they are just localhost
+export { getFavourites, setFavourites };
+
+const fetchData = () =>
+  getRandomBeerList(10)
+    .catch(handle)
+    .then((res) => res?.data || []);
 
 export { fetchData };
